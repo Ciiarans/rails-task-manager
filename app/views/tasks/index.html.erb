@@ -1,0 +1,9 @@
+<h1>Liste des taches</h1>
+<% @tasks.each do |task| %>
+<div>
+<h3><input type="checkbox"> <%= "Tache n°#{task.id} :" %> </h3>
+<h2>-<%= link_to task.title, task_path(task) %>-</h2>
+<h2><%= link_to 'X', destroy_task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></h2>
+</div>
+<% end %>
+<h4><%= link_to 'create new task', new_task_path %></h4>
